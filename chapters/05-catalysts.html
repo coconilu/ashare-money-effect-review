@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>05 催化事件时间轴 · 赚钱效应复盘终端</title>
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="../index.html" style="text-decoration:none">赚钱效应复盘终端</a>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="01-panorama.html">01 全景</a>
+    <a href="02-bad-times.html">02 差的时段</a>
+    <a href="03-good-times.html">03 好的时段</a>
+    <a href="04-top5.html">04 Top5 因素</a>
+    <a href="05-catalysts.html" class="active">05 催化时间轴</a>
+    <a href="06-rules.html">06 三条规律</a>
+    <a href="07-now.html">07 看懂当下</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="ch-head">
+    <div class="kicker">Chapter 05 · 导火索</div>
+    <h1>催化事件时间轴</h1>
+    <p class="lede">每一次转折，都有一根导火索。</p>
+  </div>
+
+  <p>前面几章讲了哪些时段好、哪些时段差、哪些因素最重要。这一章把镜头推到更近：<strong>转折发生在哪一天？</strong>把两年的关键日子排开，你会发现赚钱效应的开关几乎从不渐变——它总是某一天被一则公告、一个发布会、一份文件"啪"地扳动。</p>
+
+  <div class="demo">
+    <div class="demo-title">演示 1 · 把事件钉在指数曲线上</div>
+    <div class="demo-sub">2024-01～2025-12 上证指数关键点位连线示意，非每日行情。红点 = 利好事件，绿点 = 利空事件。点击或 hover 圆点，下方显示事件详情。默认选中两年里最粗的那根导火索：9·24。</div>
+    <canvas id="chart5" class="chart" width="860" height="420"></canvas>
+    <div class="card" style="margin:14px 0 0">
+      <div>
+        <span class="num" id="evDate" style="color:var(--accent)">—</span>
+        &nbsp;<strong id="evName">—</strong>
+        &nbsp;<span class="tag good" id="evTag">—</span>
+      </div>
+      <p id="evDesc" style="margin:8px 0 0">—</p>
+    </div>
+    <div class="demo-note">hover 或点击任意圆点，看这根导火索点燃了什么。注意 2024 年 9 月下旬：三根红点挤在一起——那不是巧合，是一次蓄力的总爆发。</div>
+  </div>
+
+  <div class="callout c-intuition">
+    <span class="co-title">💡 一句话直觉</span>
+    导火索不等于原因。雪球敲入、对等关税、政策组合拳都只是"点火"——柴堆早就堆好了：杠杆结构、成交枯竭、估值位置。<strong>导火索决定"什么时候爆"，柴堆决定"爆多大"。</strong>
+  </div>
+
+  <h2>2024 年：从雪球敲入到"9·24"总开关</h2>
+
+  <p>2024 年的剧本是"两踩一救"：年初杠杆结构引爆微盘危机，4 月退市新规再踩一脚，然后市场缩量磨了四个月底——直到 9 月下旬，政策用一周时间把火点了回来。点开每个节点看细节。</p>
+
+  <div class="timeline">
+    <div class="tl-node bad">
+      <div class="tl-head"><span class="tl-date">2024-01-08 起</span><span class="tl-name">雪球集中敲入</span></div>
+      <div class="tl-detail">中证 500/1000 进入敲入区，杠杆负反馈链条启动：雪球敲入 → 期指深度贴水 → 量化 DMA 降杠杆 → 微盘踩踏。点燃两年最差的时段差①，2/5 上证盘中探至 <span class="num">2635.09</span>。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2024-02-06</span><span class="tl-name">汇金增持 + 暂停转融券</span></div>
+      <div class="tl-detail">汇金公告扩大 ETF 增持、证监会暂停新增转融券，当日三大指数 <span class="num">+3.2% / +6.2% / +6.7%</span>——差①当天终结，好①救市修复启动。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-head"><span class="tl-date">2024-02-07</span><span class="tl-name">吴清接任证监会主席</span></div>
+      <div class="tl-detail">落在好①修复期内的人事定调信号，监管基调转向"严"与"稳"。</div>
+    </div>
+    <div class="tl-node bad">
+      <div class="tl-head"><span class="tl-date">2024-04-12</span><span class="tl-name">新"国九条"发布</span></div>
+      <div class="tl-detail">退市收紧，微盘股指数 4/15、4/16 两日 <span class="num">-8.88%</span>、<span class="num">-10.55%</span>——点燃差②，制度性、结构性的亏钱效应。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-head"><span class="tl-date">2024-05-17</span><span class="tl-name">地产新政</span></div>
+      <div class="tl-detail">首付 <span class="num">15%</span>、取消利率下限、<span class="num">3000</span> 亿收储再贷款——预期管理，但没能拦住随后四个月的缩量磨底。</div>
+    </div>
+    <div class="tl-node bad">
+      <div class="tl-head"><span class="tl-date">2024-07-05</span><span class="tl-name">成交 5772.5 亿创当时年内新低</span></div>
+      <div class="tl-detail">差③的情绪冰点：没人赚钱也没人离场的枯竭市。到 8 月底，全年上涨个股占比仅 <span class="num">11.12%</span>。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2024-09-19</span><span class="tl-name">美联储四年来首次降息</span></div>
+      <div class="tl-detail">外部流动性转松，顺风就位——五天之后，总开关打开。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2024-09-24</span><span class="tl-name">政策组合拳：双降 + 8000 亿专项工具</span></div>
+      <div class="tl-detail">降准 <span class="num">0.5</span>pct + 降息 <span class="num">20</span>BP + 互换便利 <span class="num">5000</span> 亿 + 回购增持再贷款 <span class="num">3000</span> 亿。当日 <span class="num">+4.15%</span>、<span class="num">5167</span> 家上涨——两年最猛的好②点火。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2024-09-26</span><span class="tl-name">政治局会议定调</span></div>
+      <div class="tl-detail">地产"止跌回稳"、"努力提振资本市场"——最高层定调，把脉冲升级为趋势预期。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2024-10-08</span><span class="tl-name">成交 3.45 万亿创历史纪录</span></div>
+      <div class="tl-detail"><span class="num">5334</span> 股飘红、近千股涨停；同日发改委发布会财政预期落空——好②在天量中见顶。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-head"><span class="tl-date">2024-11-08</span><span class="tl-name">10 万亿化债落地</span></div>
+      <div class="tl-detail">财政发力，预期管理：托住好②之后的巨震期，维持"基本面会跟上流动性"的信念。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-head"><span class="tl-date">2024-12 中</span><span class="tl-name">中央经济工作会议："适度宽松"</span></div>
+      <div class="tl-detail">货币政策 <span class="num">14</span> 年来首提"适度宽松"——为整个 2025 年的流动性定调。</div>
+    </div>
+  </div>
+
+  <h2>2025 年：DeepSeek、关税与存款搬家</h2>
+
+  <p>2025 年的剧本是"一砸一救一主升"：DeepSeek 点燃春季行情，4 月关税一天砸出深坑、政策当天接住，随后降准降息叠加上存款搬家，把行情一路推到 4000 点上方。</p>
+
+  <div class="timeline">
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-01-20</span><span class="tl-name">DeepSeek-R1 发布</span></div>
+      <div class="tl-detail">春节期间发酵，引爆中国科技资产重估——好④春季行情的主线火种，计算机行业年初至 3 月初涨超 <span class="num">20%</span>。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-01-22</span><span class="tl-name">中长期资金入市实施方案</span></div>
+      <div class="tl-detail">六部门联合发文，改变资金结构的慢变量，为好④⑤铺路。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-head"><span class="tl-date">2025-02-17</span><span class="tl-name">民营企业座谈会</span></div>
+      <div class="tl-detail">预期管理：给科技与民营板块再加一层信心。</div>
+    </div>
+    <div class="tl-node bad">
+      <div class="tl-head"><span class="tl-date">2025-04-02 / 07</span><span class="tl-name">"对等关税"落地，黑色星期一</span></div>
+      <div class="tl-detail">4/7 上证 <span class="num">-7.34%</span>、创业板 <span class="num">-12.5%</span>、全市场 <span class="num">3038</span> 只跌停——差⑤，单日亏钱效应为 2020 年 2 月以来之最。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-04-08</span><span class="tl-name">类平准基金：汇金 + 央行再贷款</span></div>
+      <div class="tl-detail">汇金首获"类平准基金"定位，当日股票 ETF 净流入约 <span class="num">690</span> 亿创纪录——差⑤当天终结，好⑤ V 型修复启动。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-05-07</span><span class="tl-name">一揽子金融政策：降准降息</span></div>
+      <div class="tl-detail">降准 <span class="num">0.5</span>pct + 降息 <span class="num">0.1</span>pct，为好⑤⑥再加流动性。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-07</span><span class="tl-name">"反内卷"定调 + 雅下水电开工</span></div>
+      <div class="tl-detail">为好⑥主升段补上新主线，行情从算力向更多板块扩散。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-08-18</span><span class="tl-name">总市值首破 100 万亿</span></div>
+      <div class="tl-detail">存款搬家牛的里程碑——它是结果，也是下一波进场的广告。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-10-28 / 29</span><span class="tl-name">盘中破 4000；两融约 2.5 万亿创新高</span></div>
+      <div class="tl-detail">上证十年首次盘中站上 <span class="num">4000</span>，杠杆资金同步登顶——好⑥的顶点。</div>
+    </div>
+    <div class="tl-node good">
+      <div class="tl-head"><span class="tl-date">2025-12</span><span class="tl-name">央行年末万亿级投放</span></div>
+      <div class="tl-detail">点燃好⑦跨年行情：上证 11 连阳收官 <span class="num">3968.84</span>。</div>
+    </div>
+  </div>
+
+  <h2>把导火索分类：哪种火最常用？</h2>
+
+  <p>22 个节点摆在一起，类型分布很不均匀。下面把真正"点火"的事件按类型分成四列——数量本身就在说话。</p>
+
+  <div class="demo">
+    <div class="demo-title">演示 2 · 催化类型分布</div>
+    <div class="demo-sub">列头徽章是该类事件数量。点击任一事件，看它点燃或终结了哪个时段。成交纪录、指数关口这类市场里程碑是"结果"不是导火索，不计入。</div>
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin-top:0">政策 · 货币 <span class="tag mid">10</span></h3>
+        <div class="btn-group" style="flex-direction:column;align-items:stretch;text-align:left">
+          <button class="cat-ev" data-effect="终结差①（微盘流动性危机），点燃好①（国家队救市修复）——两年内第一次「政策买底」。"><span class="num">24-02-06</span> 汇金增持 + 暂停转融券</button>
+          <button class="cat-ev" data-effect="预期管理：没能扭转差③缩量磨底——单一政策不扳流动性，火点不起来。"><span class="num">24-05-17</span> 地产新政</button>
+          <button class="cat-ev" data-effect="点燃好②（9·24 史诗级脉冲）——总开关：6 个交易日上证 2749 → 3674。"><span class="num">24-09-24</span> 政策组合拳（双降+专项工具）</button>
+          <button class="cat-ev" data-effect="为好②定调：把脉冲行情升级为趋势预期。"><span class="num">24-09-26</span> 政治局会议</button>
+          <button class="cat-ev" data-effect="预期管理：托住好②之后的巨震期，维持「基本面会跟上流动性」的信念。"><span class="num">24-11-08</span> 10 万亿化债</button>
+          <button class="cat-ev" data-effect="14 年来首提「适度宽松」，为整个 2025 年的流动性定调。"><span class="num">24-12 中</span> 中央经济工作会议</button>
+          <button class="cat-ev" data-effect="支撑好④、铺垫好⑤——改变资金结构的慢变量。"><span class="num">25-01-22</span> 中长期资金入市方案</button>
+          <button class="cat-ev" data-effect="终结差⑤（关税暴跌），点燃好⑤（V 型修复）——第三次「政策买底」。"><span class="num">25-04-08</span> 类平准基金</button>
+          <button class="cat-ev" data-effect="巩固好⑤，为好⑥存款搬家主升段再加流动性。"><span class="num">25-05-07</span> 降准降息</button>
+          <button class="cat-ev" data-effect="点燃好⑦：跨年 11 连阳，收官 3968.84。"><span class="num">25-12</span> 央行年末万亿级投放</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">制度 · 监管 <span class="tag mid">3</span></h3>
+        <div class="btn-group" style="flex-direction:column;align-items:stretch;text-align:left">
+          <button class="cat-ev" data-effect="点燃差①——杠杆结构负反馈：雪球敲入 → 期指贴水 → DMA 降杠杆 → 微盘踩踏。"><span class="num">24-01-08</span> 雪球集中敲入</button>
+          <button class="cat-ev" data-effect="好①修复期的人事定调信号，监管基调转向「严」与「稳」。"><span class="num">24-02-07</span> 吴清接任证监会主席</button>
+          <button class="cat-ev" data-effect="点燃差②——退市新规引发微盘两连踩踏；长期利好与短期阵痛同体。"><span class="num">24-04-12</span> 新「国九条」</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin-top:0">产业 · 主题 <span class="tag mid">3</span></h3>
+        <div class="btn-group" style="flex-direction:column;align-items:stretch;text-align:left">
+          <button class="cat-ev" data-effect="点燃好④——科技资产重估，春季行情的结构性主线。"><span class="num">25-01-20</span> DeepSeek-R1 发布</button>
+          <button class="cat-ev" data-effect="预期管理：为好④⑤的科技与民营板块加信心。"><span class="num">25-02-17</span> 民营企业座谈会</button>
+          <button class="cat-ev" data-effect="为好⑥主升段补充新主线，把行情从算力扩散到更多板块。"><span class="num">25-07</span> 「反内卷」+ 雅下水电</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">外部 · 地缘 <span class="tag mid">2</span></h3>
+        <div class="btn-group" style="flex-direction:column;align-items:stretch;text-align:left">
+          <button class="cat-ev" data-effect="好②的外部顺风——降息落地五天后，总开关打开。"><span class="num">24-09-19</span> 美联储首次降息</button>
+          <button class="cat-ev" data-effect="点燃差⑤——4/7 单日抹掉数月赚钱效应；但只挖了深坑，没改变趋势。"><span class="num">25-04-02</span> 「对等关税」</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="catLine" style="margin:0">
+      <strong id="catName">四类导火索</strong>
+      <p id="catEffect" style="margin:6px 0 0">点击上方任一事件，看它点燃或终结了哪个时段。注意数量对比：政策·货币 10 次，外部·地缘只有 2 次——这台机器的钥匙挂在政策腰上。</p>
+    </div>
+    <div class="demo-note">逐个点一遍"政策 · 货币"那一列：三次大底（2635、2689、3040）全部是它亲手买出来的。</div>
+  </div>
+
+  <div class="callout c-math">
+    <span class="co-title">∑ 想深一层</span>
+    为什么"政策 + 流动性"组合是最强导火索？因为赚钱效应 ≈ 流动性方向 × 政策方向。政策组合拳一次扳动两个变量：降准降息直接给钱，高层定调直接给信心。单一变量的事件（产业催化、外部顺风）只能点燃一个时段；双变量事件才能扭转整段趋势。
+  </div>
+
+  <div class="callout c-trap">
+    <span class="co-title">⚠️ 常见陷阱</span>
+    把导火索当买入信号去追。9·24 当日已经 <span class="num">+4.15%</span>，10·8 天量之后紧跟着就是巨震——等你看到新闻，第一根阳线往往已经走完。导火索的正确用法是<strong>事后理解结构、事前盯柴堆</strong>（成交枯竭、杠杆极端、政策静默期），而不是看到标题才冲进去。
+  </div>
+
+  <div class="callout c-summary">
+    <span class="co-title">✓ 本章小结</span>
+    两年的转折都能指到具体的一天。规律很整齐：<strong>好行情的导火索几乎都是"政策 + 流动性"组合</strong>——汇金增持、9·24 组合拳、类平准基金、降准降息；<strong>坏行情的导火索几乎都是杠杆结构或外部冲击</strong>——雪球/DMA 踩踏、退市新规、对等关税。外部冲击只挖坑不改趋势，政策出手才改方向。下一章，把这一切压缩成三条能带走的规律。
+  </div>
+
+  <button class="btn-done">标记本章完成</button>
+
+  <div class="chapter-nav">
+    <a class="prev" href="04-top5.html"><span class="cn-dir">上一章</span><span class="cn-title">← 04 影响因素 Top 5</span></a>
+    <a class="next" href="06-rules.html"><span class="cn-dir">下一章</span><span class="cn-title">06 三条最简规律 →</span></a>
+  </div>
+</div>
+
+<script src="../assets/js/site.js"></script>
+<script>
+(function () {
+  "use strict";
+  var GOOD = "#e64545", BAD = "#2fa36b", ACCENT = "#f0b429";
+
+  /* ============ 演示 1：把事件钉在指数曲线上 ============ */
+  // 关键点位（示意，非每日行情）
+  var PTS = [
+    ["2024-01-02", 2975], ["2024-02-05", 2635], ["2024-05-20", 3174],
+    ["2024-09-18", 2689], ["2024-09-23", 2749], ["2024-10-08", 3489],
+    ["2024-12-31", 3352], ["2025-01-13", 3141], ["2025-03-18", 3420],
+    ["2025-04-07", 3041], ["2025-06-24", 3420], ["2025-08-22", 3800],
+    ["2025-10-28", 4000], ["2025-11-14", 4034], ["2025-12-16", 3817],
+    ["2025-12-31", 3969]
+  ];
+  var EVS = [
+    { d: "2024-02-06", name: "汇金增持 + 暂停转融券", dir: "good", period: "终结差① → 点燃好①",
+      desc: "国家队第一次亲手买底：公告当日三大指数 +3.2%/+6.2%/+6.7%，一季度增持 ETF 约 3300 亿，反弹期上涨家数占比达 96%。" },
+    { d: "2024-04-12", name: "新\"国九条\"发布", dir: "bad", period: "点燃差②",
+      desc: "退市收紧引爆微盘股两连踩踏（-8.88%、-10.55%）——制度性、结构性的亏钱效应，大盘蓝筹同期反而走强。" },
+    { d: "2024-09-19", name: "美联储首次降息", dir: "good", period: "好②的外部顺风",
+      desc: "四年来首次降息，外部流动性转松——为五天后的总开关提供顺风条件。" },
+    { d: "2024-09-24", name: "政策组合拳：双降 + 8000 亿专项工具", dir: "good", period: "点燃好②（总开关）",
+      desc: "降准 0.5pct + 降息 20BP + 互换便利 5000 亿 + 回购增持再贷款 3000 亿。当日 +4.15%、5167 家上涨，两年最猛的一段就此点火。" },
+    { d: "2024-09-26", name: "政治局会议定调", dir: "good", period: "好②（定调）",
+      desc: "地产\"止跌回稳\"、\"努力提振资本市场\"——最高层定调，把脉冲升级为趋势预期。" },
+    { d: "2024-10-08", name: "成交 3.45 万亿创纪录", dir: "good", period: "好②见顶",
+      desc: "历史天量：5334 股飘红、近千股涨停；同日发改委发布会财政预期落空，脉冲在天量中见顶。" },
+    { d: "2024-11-08", name: "10 万亿化债落地", dir: "good", period: "预期管理",
+      desc: "财政发力稳住\"基本面会跟上流动性\"的预期，托住脉冲之后的巨震期。" },
+    { d: "2025-01-20", name: "DeepSeek-R1 发布", dir: "good", period: "点燃好④",
+      desc: "春节期间发酵，引爆中国科技资产重估：计算机行业年初至 3 月初涨超 20%，春季行情主线成型。" },
+    { d: "2025-04-02", name: "\"对等关税\"落地", dir: "bad", period: "点燃差⑤",
+      desc: "4/7 黑色星期一：上证 -7.34%、3038 只跌停，单日抹掉数月赚钱效应——2020 年 2 月以来之最。" },
+    { d: "2025-04-08", name: "类平准基金：汇金 + 央行再贷款", dir: "good", period: "终结差⑤ → 点燃好⑤",
+      desc: "汇金首获\"类平准基金\"定位，当日股票 ETF 净流入约 690 亿创纪录——深坑当天被接住，V 型修复启动。" },
+    { d: "2025-05-07", name: "一揽子金融政策：降准降息", dir: "good", period: "好⑤⑥",
+      desc: "降准 0.5pct + 降息 0.1pct，流动性再加码，为随后的存款搬家主升段铺路。" },
+    { d: "2025-10-29", name: "两融约 2.5 万亿创新高", dir: "good", period: "好⑥顶点",
+      desc: "前一天上证盘中破 4000（十年首次），杠杆资金同步登顶——赚钱效应推到全年最高点。" }
+  ];
+
+  var cv = document.getElementById("chart5");
+  var W = 860, H = 420;
+  var dpr = window.devicePixelRatio || 1;
+  cv.width = W * dpr; cv.height = H * dpr;
+  var ctx = cv.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  var padL = 48, padR = 18, padT = 30, padB = 32;
+  var VMIN = 2550, VMAX = 4100, TMAX = 24;
+
+  function tOf(dateStr) {
+    var p = dateStr.split("-");
+    return (+p[0] - 2024) * 12 + (+p[1] - 1) + (+p[2] - 1) / 31;
+  }
+  function xOf(t) { return padL + (t / TMAX) * (W - padL - padR); }
+  function yOf(v) { return H - padB - ((v - VMIN) / (VMAX - VMIN)) * (H - padT - padB); }
+
+  var ptsT = PTS.map(function (p) { return [tOf(p[0]), p[1]]; });
+  function curveVal(t) {
+    if (t <= ptsT[0][0]) return ptsT[0][1];
+    for (var i = 0; i < ptsT.length - 1; i++) {
+      var a = ptsT[i], b = ptsT[i + 1];
+      if (t <= b[0]) return a[1] + (b[1] - a[1]) * ((t - a[0]) / (b[0] - a[0]));
+    }
+    return ptsT[ptsT.length - 1][1];
+  }
+
+  // 预计算事件圆点像素坐标
+  EVS.forEach(function (e) {
+    var t = tOf(e.d);
+    e.px = xOf(t); e.py = yOf(curveVal(t));
+  });
+
+  var sel = 3; // 默认选中 2024-09-24
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // 横向网格 + 刻度
+    [2700, 3000, 3400, 3800, 4000].forEach(function (v) {
+      var y = yOf(v);
+      ctx.strokeStyle = "#1b2330"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
+      ctx.fillStyle = "#8b96a8"; ctx.font = "11px ui-monospace, Consolas, monospace";
+      ctx.textAlign = "right"; ctx.fillText(String(v), padL - 8, y + 4);
+    });
+    // 月份刻度
+    ctx.textAlign = "center"; ctx.fillStyle = "#8b96a8";
+    ctx.font = "11px ui-monospace, Consolas, monospace";
+    [[0, "24-01"], [6, "24-07"], [12, "25-01"], [18, "25-07"], [23.9, "25-12"]].forEach(function (m) {
+      ctx.fillText(m[1], xOf(m[0]), H - 10);
+    });
+    // 曲线下淡填充
+    ctx.beginPath();
+    ctx.moveTo(xOf(ptsT[0][0]), yOf(ptsT[0][1]));
+    for (var i = 1; i < ptsT.length; i++) ctx.lineTo(xOf(ptsT[i][0]), yOf(ptsT[i][1]));
+    ctx.lineTo(xOf(ptsT[ptsT.length - 1][0]), H - padB);
+    ctx.lineTo(xOf(ptsT[0][0]), H - padB);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(240,180,41,.07)"; ctx.fill();
+    // 曲线（琥珀色）
+    ctx.beginPath();
+    for (var j = 0; j < ptsT.length; j++) {
+      var x = xOf(ptsT[j][0]), y = yOf(ptsT[j][1]);
+      j === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = ACCENT; ctx.lineWidth = 2.5; ctx.stroke(); ctx.lineWidth = 1;
+    // 关键点位小点
+    ptsT.forEach(function (p) {
+      ctx.fillStyle = ACCENT;
+      ctx.beginPath(); ctx.arc(xOf(p[0]), yOf(p[1]), 2.5, 0, Math.PI * 2); ctx.fill();
+    });
+    // 事件圆点
+    EVS.forEach(function (e, i) {
+      var c = e.dir === "good" ? GOOD : BAD;
+      ctx.beginPath(); ctx.arc(e.px, e.py, i === sel ? 8 : 6, 0, Math.PI * 2);
+      ctx.fillStyle = c; ctx.fill();
+      ctx.strokeStyle = "#0c1017"; ctx.lineWidth = 2; ctx.stroke(); ctx.lineWidth = 1;
+      if (i === sel) {
+        ctx.beginPath(); ctx.arc(e.px, e.py, 12, 0, Math.PI * 2);
+        ctx.strokeStyle = ACCENT; ctx.lineWidth = 1.5; ctx.stroke(); ctx.lineWidth = 1;
+        // 日期标签
+        ctx.font = "bold 11px ui-monospace, Consolas, monospace";
+        ctx.textAlign = "center"; ctx.fillStyle = ACCENT;
+        var lx = Math.max(padL + 28, Math.min(W - padR - 28, e.px));
+        ctx.fillText(e.d, lx, Math.max(14, e.py - 18));
+      }
+    });
+    // 图例
+    ctx.font = "12px system-ui"; ctx.textAlign = "left";
+    ctx.fillStyle = GOOD; ctx.fillText("● 利好", padL + 6, padT - 14);
+    ctx.fillStyle = BAD; ctx.fillText("● 利空", padL + 64, padT - 14);
+    ctx.fillStyle = ACCENT; ctx.fillText("— 上证指数（关键点位连线示意）", padL + 122, padT - 14);
+  }
+
+  function showEvent() {
+    var e = EVS[sel];
+    document.getElementById("evDate").textContent = e.d;
+    document.getElementById("evName").textContent = e.name;
+    var tag = document.getElementById("evTag");
+    tag.textContent = e.period;
+    tag.className = "tag " + (e.dir === "good" ? "good" : "bad");
+    document.getElementById("evDesc").textContent = e.desc;
+  }
+
+  function pick(evt) {
+    var r = cv.getBoundingClientRect();
+    var mx = (evt.clientX - r.left) * (W / r.width);
+    var my = (evt.clientY - r.top) * (H / r.height);
+    var best = -1, bestD = 16;
+    EVS.forEach(function (e, i) {
+      var d = Math.hypot(e.px - mx, e.py - my);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+  cv.addEventListener("mousemove", function (evt) {
+    var i = pick(evt);
+    cv.style.cursor = i >= 0 ? "pointer" : "default";
+    if (i >= 0 && i !== sel) { sel = i; draw(); showEvent(); }
+  });
+  cv.addEventListener("click", function (evt) {
+    var i = pick(evt);
+    if (i >= 0) { sel = i; draw(); showEvent(); }
+  });
+
+  /* ============ 演示 2：催化类型分布 ============ */
+  var catBtns = document.querySelectorAll(".cat-ev");
+  catBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      catBtns.forEach(function (x) { x.classList.remove("active"); });
+      b.classList.add("active");
+      document.getElementById("catName").textContent = b.textContent;
+      document.getElementById("catEffect").textContent = b.dataset.effect;
+    });
+  });
+
+  draw(); showEvent();
+})();
+</script>
+</body>
+</html>

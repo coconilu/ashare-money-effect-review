@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赚钱效应复盘终端 · 2024–2025 A股</title>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<div class="progress"></div>
+<header class="topbar">
+  <span class="brand">赚钱效应复盘终端</span>
+  <nav>
+    <a href="index.html" class="active">首页</a>
+    <a href="chapters/01-panorama.html">01 全景</a>
+    <a href="chapters/02-bad-times.html">02 差的时段</a>
+    <a href="chapters/03-good-times.html">03 好的时段</a>
+    <a href="chapters/04-top5.html">04 Top5 因素</a>
+    <a href="chapters/05-catalysts.html">05 催化时间轴</a>
+    <a href="chapters/06-rules.html">06 三条规律</a>
+    <a href="chapters/07-now.html">07 看懂当下</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>指数很美，<span class="hl">你赚钱了吗？</span></h1>
+  <p class="sub">2024–2025 年 A 股赚钱效应复盘 · 复盘过去，看懂当下</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hs-v" data-count="3968.84">0</div><div class="hs-l">2025 年末上证指数收盘</div></div>
+    <div class="hero-stat"><div class="hs-v" data-count="3.45" data-suffix=" 万亿">0</div><div class="hs-l">历史单日成交纪录（2024-10-08）</div></div>
+    <div class="hero-stat"><div class="hs-v" data-count="79" data-suffix="%">0</div><div class="hs-l">2025 年上涨家数占比</div></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="callout c-intuition">
+    <span class="co-title">💡 这个网站回答一个问题</span>
+    同样是"牛市"，为什么 2024 年指数涨了 12.67% 多数人却在亏钱，而 2025 年近八成股票上涨？
+    答案藏在一个被忽略的区分里：<strong>指数收益 ≠ 赚钱效应</strong>。
+  </div>
+
+  <div class="grid">
+    <a class="ch-card" href="chapters/01-panorama.html">
+      <span class="cc-done" data-page="01-panorama.html"></span>
+      <div class="cc-no">CHAPTER 01</div>
+      <div class="cc-title">全景：指数牛 ≠ 人人赚钱</div>
+      <div class="cc-hook">先学会区分两个东西：指数涨跌，和你真实的赚钱概率。</div>
+    </a>
+    <a class="ch-card" href="chapters/02-bad-times.html">
+      <span class="cc-done" data-page="02-bad-times.html"></span>
+      <div class="cc-no">CHAPTER 02</div>
+      <div class="cc-title">赚钱效应差的六个时段</div>
+      <div class="cc-hook">微盘踩踏、缩量磨底、关税黑天鹅——亏钱的时候都长什么样？</div>
+    </a>
+    <a class="ch-card" href="chapters/03-good-times.html">
+      <span class="cc-done" data-page="03-good-times.html"></span>
+      <div class="cc-no">CHAPTER 03</div>
+      <div class="cc-title">赚钱效应好的七个时段</div>
+      <div class="cc-hook">9·24 脉冲、DeepSeek 春天、存款搬家牛——赚钱的时候又有什么共同点？</div>
+    </a>
+    <a class="ch-card" href="chapters/04-top5.html">
+      <span class="cc-done" data-page="04-top5.html"></span>
+      <div class="cc-no">CHAPTER 04</div>
+      <div class="cc-title">影响赚钱效应的 Top 5 因素</div>
+      <div class="cc-hook">政策、产业、杠杆、制度、地缘——谁在开关赚钱效应？</div>
+    </a>
+    <a class="ch-card" href="chapters/05-catalysts.html">
+      <span class="cc-done" data-page="05-catalysts.html"></span>
+      <div class="cc-no">CHAPTER 05</div>
+      <div class="cc-title">催化事件时间轴</div>
+      <div class="cc-hook">把每一个转折点钉在指数曲线上，看事件如何引爆行情。</div>
+    </a>
+    <a class="ch-card" href="chapters/06-rules.html">
+      <span class="cc-done" data-page="06-rules.html"></span>
+      <div class="cc-no">CHAPTER 06</div>
+      <div class="cc-title">三条最简规律</div>
+      <div class="cc-hook">万事万物都有发展规律，而且极其简单——这三条就是。</div>
+    </a>
+    <a class="ch-card" href="chapters/07-now.html">
+      <span class="cc-done" data-page="07-now.html"></span>
+      <div class="cc-no">CHAPTER 07</div>
+      <div class="cc-title">看懂当下（2026-10）</div>
+      <div class="cc-hook">用三条规律给当下市场做一次体检：现在处于什么位置？</div>
+    </a>
+  </div>
+
+  <div class="foot">
+    数据来源：公开行情与媒体复盘（财新 / 第一财经 / 证券时报等），指数点位经行情接口核实 ·
+    本站仅为研究复盘，不构成投资建议
+  </div>
+</div>
+
+<script src="assets/js/site.js"></script>
+<script>
+// hero 数字跑马
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".hs-v").forEach(function (el) {
+    var target = parseFloat(el.dataset.count);
+    var suffix = el.dataset.suffix || "";
+    if (reduced) { el.textContent = target + suffix; return; }
+    var t0 = null, dur = 1400;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var v = target * (1 - Math.pow(1 - p, 3));
+      el.textContent = (target % 1 === 0 ? Math.round(v) : v.toFixed(2)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+  // 首页完成态圆点
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem("me-effect-done-v1") || "{}"); } catch (e) {}
+  document.querySelectorAll(".cc-done").forEach(function (dot) {
+    if (state[dot.dataset.page]) dot.classList.add("done");
+  });
+})();
+</script>
+</body>
+</html>

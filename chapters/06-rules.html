@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 三条最简规律 · 赚钱效应复盘终端</title>
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="../index.html" style="text-decoration:none">赚钱效应复盘终端</a>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="01-panorama.html">01 全景</a>
+    <a href="02-bad-times.html">02 差的时段</a>
+    <a href="03-good-times.html">03 好的时段</a>
+    <a href="04-top5.html">04 Top5 因素</a>
+    <a href="05-catalysts.html">05 催化时间轴</a>
+    <a href="06-rules.html" class="active">06 三条规律</a>
+    <a href="07-now.html">07 看懂当下</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="ch-head">
+    <div class="kicker">Chapter 06 · 规律</div>
+    <h1>三条最简规律</h1>
+    <p class="lede">两年的暴涨暴跌，最后收进三句话：等政策出手、盯成交额、给再平衡留仓位。</p>
+  </div>
+
+  <p>你可能听过一句断言：<strong>「万事万物都有发展规律，而且极其简单。」</strong>这话放在 A 股身上成立吗？把 2024–2025 年复盘完之后，我的答案是：成立。千股跌停、<span class="num">3.45</span> 万亿天量、指数十年新高——所有这些喧嚣，都能被三条规律装下。</p>
+
+  <p>它们不预测明天涨跌，但能回答三个更值钱的问题：什么时候该等政策、怎么判断行情性质、什么时候该反过来想。</p>
+
+  <div class="callout c-intuition">
+    <span class="co-title">💡 一句话直觉</span>
+    把市场想成一台机器：政策是<strong>总开关</strong>，成交额是<strong>温度计</strong>，分化是<strong>压力表</strong>。三条规律就是读这三块表。
+  </div>
+
+  <h2>规律一：赚钱效应 = 流动性方向 × 政策方向</h2>
+
+  <div class="formula">赚钱效应 = 流动性方向 × 政策方向</div>
+
+  <p>注意这是<strong>乘法</strong>，不是加法。两个变量里任何一个朝着反方向走，结果就是零甚至负数。政策按兵不动时——比如 2024 年 5–9 月——市场就是缩量磨底，什么叙事都没用；而政策出手时，它能在一周内把上涨家数占比从 <span class="num">4%</span> 翻转成 <span class="num">96%</span>。其余变量——估值、叙事、外资——都是二级变量。</p>
+
+  <h3>历史验证：三次大底，全是政策亲手买出来的</h3>
+
+  <table>
+    <thead>
+      <tr><th>底部日期</th><th>点位</th><th>政策出手</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">2024-02-05</td>
+        <td class="num">2635.09</td>
+        <td>次日汇金公告扩大 ETF 增持，暂停新增转融券，一季度增持 ETF 约 <span class="num">3300</span> 亿</td>
+      </tr>
+      <tr>
+        <td class="num">2024-09-18</td>
+        <td class="num">2689</td>
+        <td>9/24 降准降息 + <span class="num">8000</span> 亿股市专项工具，9/26 政治局会议定调「努力提振资本市场」</td>
+      </tr>
+      <tr>
+        <td class="num">2025-04-07</td>
+        <td class="num">3040.69</td>
+        <td>次日汇金获「类平准基金」定位 + 央行再贷款支持，当日股票 ETF 净流入约 <span class="num">690</span> 亿创纪录</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>再看三次底部出现的位置：<span class="num">2635</span> 伴着千股跌停，<span class="num">2689</span> 之前成交缩到约 <span class="num">5500</span> 亿，<span class="num">3040</span> 当天 <span class="num">3038</span> 只跌停。<strong>极端的差孕育极端的好</strong>——底部不靠猜，靠等政策出手。</p>
+
+  <div class="demo">
+    <div class="demo-title">演示 1 · 政策 × 流动性 四象限模拟器</div>
+    <div class="demo-sub">示意模型：两个开关组成 2×2 象限。拨动它们，看每种组合在 2024–2025 年对应的真实片段与结果。</div>
+    <div class="ctl">
+      <label>政策方向</label>
+      <div class="btn-group" id="polBtns">
+        <button data-pol="on" class="active">发力</button>
+        <button data-pol="off">按兵不动</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label>增量资金</label>
+      <div class="btn-group" id="fundBtns">
+        <button data-fund="in" class="active">流入</button>
+        <button data-fund="out">流出</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3 id="quadTitle">—</h3>
+      <p id="quadBody">—</p>
+    </div>
+    <div class="readouts">
+      <div class="readout" id="roPred"><span class="r-label">赚钱效应预判</span><span class="r-value num">—</span></div>
+      <div class="readout" id="roQuadCase"><span class="r-label">历史实例</span><span class="r-value num">—</span></div>
+    </div>
+    <div class="demo-note">把两个开关都拨到「不动 / 流出」，你就回到了 2024 年那个绝望的夏天——然后翻到「发力 / 流入」，体会一下 9·24 为什么来得那么猛。</div>
+  </div>
+
+  <h2>规律二：成交额是唯一不撒谎的温度计</h2>
+
+  <div class="formula">行情性质 = 成交额的边际变化，不是点位</div>
+
+  <p>指数可以被少数权重股「做」出来，但成交额是全市场每一笔真金白银的投票记录，没法合谋造假。两年复盘下来，温度计上的刻度非常清晰：</p>
+
+  <ul>
+    <li><strong>日成交 &lt; 6000 亿 = 枯竭市</strong>，没人赚钱。2024 年 9 月下旬缩到约 <span class="num">5500</span> 亿，是典型的情绪冰点；</li>
+    <li><strong>1–1.5 万亿 = 结构市</strong>，只有主线赚钱。2025 年春季 DeepSeek 行情，指数温和、主线暴利；</li>
+    <li><strong>连续 &gt; 2 万亿 = 普涨</strong>，赚钱效应全面扩张。2025 年 8 月主升段，成交从 1 万亿级跃升到 2–3 万亿级；</li>
+    <li><strong>单次冲 3 万亿 = 情绪高潮</strong>，随后波动放大而非趋势终结。<span class="num">2024-10-08</span> 的 <span class="num">3.45</span> 万亿就是教科书样本。</li>
+  </ul>
+
+  <p>一句话：<strong>增量资金决定普涨，存量资金只给结构。</strong>判断行情性质，看成交额的边际变化，不看点位。</p>
+
+  <div class="demo">
+    <div class="demo-title">演示 2 · 成交额温度计</div>
+    <div class="demo-sub">拖动滑块改变日成交额，看温度计指针落在哪个区间、对应哪一段真实历史。预设按钮是四个真实交易日/时段。</div>
+    <div class="ctl">
+      <label>日成交额 <output id="volOut">1.30 万亿</output></label>
+      <input type="range" id="vol" min="0.4" max="3.5" step="0.05" value="1.3">
+    </div>
+    <div class="btn-group" id="volPresets">
+      <button class="preset" data-v="0.55">0.55 万亿 · 9·24 前夜</button>
+      <button class="preset" data-v="1.3">1.3 万亿 · 2025 春结构市</button>
+      <button class="preset" data-v="2.5">2.5 万亿 · 2025-08 主升段</button>
+      <button class="preset" data-v="3.45">3.45 万亿 · 2024-10-08</button>
+    </div>
+    <canvas id="chartT" class="chart" width="860" height="320"></canvas>
+    <div class="readouts">
+      <div class="readout" id="roVol"><span class="r-label">当前成交额</span><span class="r-value num">—</span></div>
+      <div class="readout" id="roRegime"><span class="r-label">市况判定</span><span class="r-value num">—</span></div>
+      <div class="readout" id="roHist"><span class="r-label">对应历史实例</span><span class="r-value num">—</span></div>
+    </div>
+    <div class="demo-note">从 0.55 万亿慢慢拖到 3.45 万亿，注意指针颜色从绿到红再到橙——绿是没人赚钱的枯竭，红是人人赚钱的普涨，橙是高潮，高潮之后是巨震。</div>
+  </div>
+
+  <div class="callout c-trap">
+    <span class="co-title">⚠️ 常见陷阱</span>
+    把天量当冲锋号。<span class="num">2024-10-08</span> 成交 <span class="num">3.45</span> 万亿创历史纪录的当天，财政预期落空，随后指数进入两个月的宽幅巨震。单次冲 3 万亿标记的是<strong>情绪高潮</strong>，不是趋势起点——高潮时该做的是谨慎，不是加仓。
+  </div>
+
+  <div class="callout c-math">
+    <span class="co-title">∑ 想深一层</span>
+    为什么成交额不撒谎？点位是「价格」，可以被少量权重股左右；成交额是「价格 × 数量」，需要全市场真金白银同时进场才堆得出来。造假成本差了无数个数量级——所以它是最难伪造的指标。
+  </div>
+
+  <h2>规律三：分化是常态，极致分化后必然均值回归</h2>
+
+  <div class="formula">极致分化 → 均值回归：分化是风险的前置条件，不是可外推的趋势</div>
+
+  <p>第一章就说过：指数牛 ≠ 人人赚钱。现在把它升级为规律——<strong>分化才是常态</strong>。2024 年指数 <span class="num">+12.67%</span> 而个股中位数 <span class="num">-5.3%</span>；2025 年指数 <span class="num">+18.41%</span>、<span class="num">79%</span> 个股上涨，仍有三成个股下跌；2026 年上半年更极端：科创 50 大涨，而全市场个股中位数为负。赚钱效应越来越取决于你是否站在产业主线一侧。</p>
+
+  <p>但分化不能被线性外推。2024 年初微盘股被抛弃到极致，随后迎来修复；2026 上半年科技拥挤到极致，随后迎来风格再平衡。<strong>分化拉到极致之后，迎来的都是均值回归，而不是更极致的分化。</strong></p>
+
+  <div class="callout c-intuition">
+    <span class="co-title">💡 一句话直觉</span>
+    拥挤的地方没有超额收益。当所有人都挤在主线一侧时，分布最有利的位置往往在被抛弃的那一侧——前提是你给再平衡留了仓位，并且熬得到回归那天。
+  </div>
+
+  <div class="callout c-summary">
+    <span class="co-title">✓ 本章小结（背诵版）</span>
+    三句话。①<strong>等政策出手</strong>：三次大底 2635 / 2689 / 3040 全是政策买出来的，底部不靠猜。②<strong>盯成交额</strong>：&lt;6000 亿枯竭、1–1.5 万亿结构、连续 &gt;2 万亿普涨、单次 3 万亿是高潮。③<strong>给再平衡留仓位</strong>：极致分化之后必是均值回归。带着这三条，最后一章去读懂当下。
+  </div>
+
+  <button class="btn-done">标记本章完成</button>
+
+  <div class="chapter-nav">
+    <a href="05-catalysts.html"><span class="cn-dir">上一章</span><span class="cn-title">← 05 催化时间轴</span></a>
+    <a class="next" href="07-now.html"><span class="cn-dir">下一章</span><span class="cn-title">07 看懂当下 →</span></a>
+  </div>
+</div>
+
+<script src="../assets/js/site.js"></script>
+<script>
+(function () {
+  "use strict";
+  var GOOD = "#e64545", BAD = "#2fa36b", WARN = "#e8843c", ACCENT = "#f0b429", INFO = "#4f9cf9";
+
+  function setupCanvas(cv, W, H) {
+    var dpr = window.devicePixelRatio || 1;
+    cv.width = W * dpr;
+    cv.height = H * dpr;
+    var ctx = cv.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx: ctx, W: W, H: H };
+  }
+
+  /* ---------- 演示 1：政策 × 流动性 四象限 ---------- */
+  var QUAD = {
+    "on_in": {
+      t: "政策发力 × 资金流入",
+      c: "9·24 脉冲",
+      body: "2024-09-24 降准降息 + 8000 亿股市专项工具，9/26 政治局会议定调。6 个交易日上证 2749 → 3674，约 +33%，单周 +12.8% 创 2008 年以来最大。这是两年里最强的象限，也是唯一一次四个条件同时拉满。",
+      pred: "强", cls: "r-good"
+    },
+    "off_out": {
+      t: "政策按兵不动 × 资金流出",
+      c: "2024 年 5–9 月磨底",
+      body: "没有新政策，资金持续离场，成交一路缩到约 5500 亿。8 月底个股中位数 -26%，全年上涨个股占比只剩 11.12%。最差的象限：没人赚钱，也没人离场，纯消耗。",
+      pred: "弱", cls: "r-bad"
+    },
+    "on_out": {
+      t: "政策发力 × 资金流出",
+      c: "2025-04-08 托底 V 型",
+      body: "对等关税砸出 4/7 黑色星期一（上证 -7.34%、3038 只跌停），次日汇金获「类平准基金」定位、央行再贷款支持，当日股票 ETF 净流入约 690 亿创纪录，随后 11 连阳几乎收复失地。政策对冲外部冲击，资金流出被硬生生接住。",
+      pred: "修复", cls: "r-warn"
+    },
+    "off_in": {
+      t: "政策按兵不动 × 资金流入",
+      c: "2025-06 启动前的犹豫期",
+      body: "没有新大招，但存款利率下行推着居民存款「搬家」，资金自己进场。指数缓慢爬升、成交悄悄放大——这是 6 月下旬主升段启动前的蓄力期。方向向上，但斜率磨人。",
+      pred: "磨", cls: "r-accent"
+    }
+  };
+  var pol = "on", fund = "in";
+  function renderQuad() {
+    var q = QUAD[pol + "_" + fund];
+    document.getElementById("quadTitle").textContent = q.t;
+    document.getElementById("quadBody").textContent = q.body;
+    var rp = document.getElementById("roPred");
+    rp.querySelector(".r-value").textContent = q.pred;
+    rp.className = "readout " + q.cls;
+    document.getElementById("roQuadCase").querySelector(".r-value").textContent = q.c;
+  }
+  document.getElementById("polBtns").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    this.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
+    b.classList.add("active");
+    pol = b.dataset.pol;
+    renderQuad();
+  });
+  document.getElementById("fundBtns").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    this.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
+    b.classList.add("active");
+    fund = b.dataset.fund;
+    renderQuad();
+  });
+
+  /* ---------- 演示 2：成交额温度计 ---------- */
+  var CASES = [
+    { v: 0.55, label: "2024-09-23 前夜" },
+    { v: 1.30, label: "2025 春季结构市" },
+    { v: 2.50, label: "2025-08 主升段" },
+    { v: 3.45, label: "2024-10-08 天量" }
+  ];
+  var sT = setupCanvas(document.getElementById("chartT"), 860, 320);
+  var vol = 1.30;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rafId = null;
+
+  var VMIN = 0.4, VMAX = 3.5;
+  var ZONES = [
+    { a: 0.4, b: 0.6, fill: "rgba(47,163,107,.30)", name: "枯竭", color: BAD },
+    { a: 0.6, b: 1.5, fill: "rgba(79,156,249,.22)", name: "结构", color: INFO },
+    { a: 1.5, b: 2.0, fill: "rgba(240,180,41,.15)", name: "升温", color: ACCENT },
+    { a: 2.0, b: 2.9, fill: "rgba(230,69,69,.24)", name: "普涨", color: GOOD },
+    { a: 2.9, b: 3.5, fill: "rgba(232,132,60,.30)", name: "高潮", color: WARN }
+  ];
+
+  function drawT(t) {
+    var ctx = sT.ctx, W = sT.W, H = sT.H;
+    ctx.clearRect(0, 0, W, H);
+    var x0 = 60, x1 = W - 50, yBar = 150, hBar = 54;
+    function X(v) { return x0 + (v - VMIN) / (VMAX - VMIN) * (x1 - x0); }
+
+    ctx.fillStyle = "#8b96a8"; ctx.font = "13px system-ui"; ctx.textAlign = "left";
+    ctx.fillText("成交额温度计（日成交，万亿）", x0, 34);
+
+    // 区间背景带
+    ZONES.forEach(function (z, i) {
+      var fill = z.fill;
+      if (i === 4 && vol >= 2.9 && t) {
+        var k = 0.18 + 0.3 * (0.5 + 0.5 * Math.sin(t / 170));
+        fill = "rgba(232,132,60," + k.toFixed(3) + ")";
+      }
+      ctx.fillStyle = fill;
+      ctx.fillRect(X(z.a), yBar, X(z.b) - X(z.a), hBar);
+      ctx.fillStyle = z.color;
+      ctx.font = "bold 13px system-ui"; ctx.textAlign = "center";
+      ctx.fillText(z.name, (X(z.a) + X(z.b)) / 2, yBar + hBar + 24);
+    });
+    ctx.strokeStyle = "#26303f";
+    ctx.strokeRect(x0, yBar, x1 - x0, hBar);
+
+    // 刻度
+    [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5].forEach(function (v) {
+      ctx.strokeStyle = "#3a465a";
+      ctx.beginPath(); ctx.moveTo(X(v), yBar + hBar); ctx.lineTo(X(v), yBar + hBar + 6); ctx.stroke();
+      ctx.fillStyle = "#8b96a8"; ctx.font = "11px ui-monospace, Consolas, monospace"; ctx.textAlign = "center";
+      ctx.fillText(v.toFixed(1), X(v), yBar + hBar + 42);
+    });
+
+    // 历史实例标记（上沿小菱形）
+    CASES.forEach(function (c) {
+      var cx = X(c.v);
+      ctx.fillStyle = "#8b96a8";
+      ctx.beginPath();
+      ctx.moveTo(cx, yBar - 14); ctx.lineTo(cx + 5, yBar - 8); ctx.lineTo(cx, yBar - 2); ctx.lineTo(cx - 5, yBar - 8);
+      ctx.closePath(); ctx.fill();
+    });
+
+    // 液柱：从左侧填充到当前值
+    ctx.fillStyle = "rgba(240,180,41,.30)";
+    ctx.fillRect(x0, yBar, X(vol) - x0, hBar);
+
+    // 琥珀指针
+    var xv = X(vol);
+    ctx.fillStyle = ACCENT;
+    ctx.beginPath();
+    ctx.moveTo(xv, yBar - 30); ctx.lineTo(xv - 9, yBar - 12); ctx.lineTo(xv + 9, yBar - 12);
+    ctx.closePath(); ctx.fill();
+    ctx.fillRect(xv - 1.5, yBar - 12, 3, hBar + 12);
+
+    // 当前数值
+    var tx = Math.max(90, Math.min(xv, W - 100));
+    ctx.font = "bold 21px ui-monospace, Consolas, monospace"; ctx.textAlign = "center";
+    ctx.fillStyle = ACCENT;
+    ctx.fillText(vol.toFixed(2) + " 万亿", tx, yBar - 46);
+
+    // 判定文字
+    var r = regime(vol);
+    ctx.font = "14px system-ui"; ctx.textAlign = "right";
+    ctx.fillStyle = r.color;
+    ctx.fillText(r.name, x1, 34);
+  }
+
+  function regime(v) {
+    if (v < 0.6) return { name: "枯竭市", cls: "r-bad", color: BAD };
+    if (v < 2.0) return { name: "结构市", cls: "r-accent", color: ACCENT };
+    if (v < 2.9) return { name: "普涨市", cls: "r-good", color: GOOD };
+    return { name: "情绪高潮", cls: "r-warn", color: WARN };
+  }
+
+  function setRoT() {
+    var r = regime(vol);
+    var rv = document.getElementById("roVol");
+    rv.querySelector(".r-value").textContent = vol.toFixed(2) + " 万亿";
+    rv.className = "readout " + r.cls;
+    var rr = document.getElementById("roRegime");
+    rr.querySelector(".r-value").textContent = r.name;
+    rr.className = "readout " + r.cls;
+    var rh = document.getElementById("roHist");
+    var hit = null;
+    CASES.forEach(function (c) { if (Math.abs(c.v - vol) < 0.03) hit = c; });
+    rh.querySelector(".r-value").textContent = hit ? hit.label : "—";
+  }
+
+  function syncBlink() {
+    var need = vol >= 2.9 && !reduceMotion;
+    if (need && rafId === null) {
+      rafId = requestAnimationFrame(tick);
+    } else if (!need && rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+      drawT(0);
+    }
+  }
+  function tick(t) {
+    drawT(t);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  var slider = document.getElementById("vol");
+  slider.addEventListener("input", function () {
+    vol = +this.value;
+    document.getElementById("volOut").textContent = vol.toFixed(2) + " 万亿";
+    if (rafId === null) drawT(0);
+    setRoT(); syncBlink();
+  });
+  document.getElementById("volPresets").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    vol = +b.dataset.v;
+    slider.value = vol;
+    document.getElementById("volOut").textContent = vol.toFixed(2) + " 万亿";
+    if (rafId === null) drawT(0);
+    setRoT(); syncBlink();
+  });
+
+  renderQuad();
+  drawT(0); setRoT(); syncBlink();
+})();
+</script>
+</body>
+</html>
